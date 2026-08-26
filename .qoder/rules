@@ -1,0 +1,28 @@
+# GridGuard AI - Project Architecture & Coding Standards
+
+## 1. Executive Stack Summary
+- **Edge Device Simulator:** C++ (GCC/Clang, modern C++ standard) using JSON & MQTT (Eclipse Paho) libraries.
+- **Backend API & AI Engine:** Python 3 (FastAPI/Flask) running natively on Linux.
+- **Database:** SQLite for metrics, anomaly flags, and intrusion logs.
+- **Frontend Dashboard:** HTML5, CSS3, Bootstrap, and Chart.js for real-time visualization.
+- **Infrastructure & Virtualization:** Docker containerized MQTT Broker (Eclipse Mosquitto with TLS & JWT authentication).
+
+---
+
+## 2. Codebase Directory Structure
+Ensure all generated code follows this exact project layout:
+```text
+gridguard-ai/
+├── edge_simulator/      # C++ Edge Device Simulation
+│   ├── src/             # Core C++ source files
+│   └── include/         # Header files & config
+├── backend/             # Python API Backend & AI Logic
+│   ├── app/             # FastAPI/Flask application
+│   └── database/        # SQLite schema & DB initialization
+├── dashboard/           # Frontend Web Interface
+│   ├── css/
+│   ├── js/              # Chart.js & dynamic DOM updates
+│   └── index.html
+├── docker/              # Infrastructure Containerization
+│   └── mosquitto/       # MQTT Broker TLS/JWT config
+└── docs/                # Project documentation & APIs

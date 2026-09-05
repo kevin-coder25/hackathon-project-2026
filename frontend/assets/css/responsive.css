@@ -1,0 +1,213 @@
+/* ========================================================================
+   GRIDGUARD AI — Responsive Design
+   ========================================================================
+   Breakpoints and responsive overrides for grid, sidebar and layout.
+
+   Breakpoints:
+     xs   < 480px    (phones)
+     sm   < 768px    (large phones / small tablets)
+     md   < 1024px   (tablets / small laptops)
+     lg   < 1280px   (laptops)
+     xl   >= 1280px  (desktops — default styles apply)
+   ======================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   1. TABLET & BELOW  (< 1024px)
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1023px) {
+
+    /* Sidebar becomes a slide-out overlay on smaller screens */
+    .gg-sidebar {
+        transform: translateX(-100%);
+        box-shadow: none;
+    }
+
+    .gg-sidebar--open {
+        transform: translateX(0);
+        box-shadow: var(--shadow-xl);
+    }
+
+    /* Main content takes full width */
+    .gg-dashboard__main {
+        margin-left: 0;
+    }
+
+    /* Grid adjustments */
+    .gg-grid--cols-4 { grid-template-columns: repeat(2, 1fr); }
+    .gg-grid--cols-5 { grid-template-columns: repeat(3, 1fr); }
+    .gg-grid--cols-6 { grid-template-columns: repeat(3, 1fr); }
+
+    /* Reduce content padding */
+    .gg-dashboard__content {
+        padding: var(--space-4);
+    }
+}
+
+
+/* --------------------------------------------------------------------------
+   2. SMALL TABLET  (< 768px)
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 767px) {
+
+    /* Stack metric grids to 2 columns max */
+    .gg-grid--cols-3 { grid-template-columns: repeat(2, 1fr); }
+    .gg-grid--cols-4 { grid-template-columns: repeat(2, 1fr); }
+    .gg-grid--cols-5 { grid-template-columns: repeat(2, 1fr); }
+    .gg-grid--cols-6 { grid-template-columns: repeat(2, 1fr); }
+
+    /* Column span overrides */
+    .gg-col-span-2,
+    .gg-col-span-3,
+    .gg-col-span-4 { grid-column: span 2; }
+
+    /* Reduce card padding */
+    .gg-card       { padding: var(--space-4); }
+    .gg-metric-card{ padding: var(--space-4); }
+
+    /* Header compact */
+    .gg-header {
+        padding: 0 var(--space-4);
+    }
+
+    /* Login card full-width with margin */
+    .gg-login-layout__card {
+        margin: var(--space-4);
+        padding: var(--space-8);
+    }
+}
+
+
+/* --------------------------------------------------------------------------
+   3. PHONE  (< 480px)
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 479px) {
+
+    /* Everything single-column */
+    .gg-grid--cols-2,
+    .gg-grid--cols-3,
+    .gg-grid--cols-4,
+    .gg-grid--cols-5,
+    .gg-grid--cols-6 { grid-template-columns: 1fr; }
+
+    .gg-col-span-2,
+    .gg-col-span-3,
+    .gg-col-span-4 { grid-column: span 1; }
+
+    /* Smaller metrics on mobile */
+    .gg-metric-card__value {
+        font-size: var(--metric-md);
+    }
+
+    /* Stack header vertically */
+    .gg-header {
+        flex-direction: column;
+        height: auto;
+        padding: var(--space-3) var(--space-4);
+        gap: var(--space-2);
+        align-items: flex-start;
+    }
+
+    .gg-header__actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    /* Login card padding reduction */
+    .gg-login-layout__card {
+        padding: var(--space-6);
+    }
+}
+
+
+/* --------------------------------------------------------------------------
+   4. LARGE DESKTOP  (>= 1440px)
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 1440px) {
+
+    /* Allow wider content on large screens */
+    .gg-dashboard__content {
+        max-width: 1600px;
+    }
+
+    /* 5 and 6 column grids can expand */
+    .gg-grid--cols-5 { grid-template-columns: repeat(5, 1fr); }
+    .gg-grid--cols-6 { grid-template-columns: repeat(6, 1fr); }
+}
+
+
+/* --------------------------------------------------------------------------
+   5. WIDESCREEN  (>= 1920px)
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 1920px) {
+
+    .gg-dashboard__content {
+        max-width: 1800px;
+    }
+
+    /* Slightly larger base font for big monitors */
+    html {
+        font-size: 17px;
+    }
+}
+
+
+/* --------------------------------------------------------------------------
+   6. SIDEBAR OVERLAY (mobile)
+   -------------------------------------------------------------------------- */
+
+/* Dark overlay behind the sidebar when open on mobile */
+.gg-sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.60);
+    z-index: calc(var(--z-sidebar) - 1);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.gg-sidebar-overlay--visible {
+    display: block;
+}
+
+
+/* --------------------------------------------------------------------------
+   7. PRINT STYLES
+   -------------------------------------------------------------------------- */
+
+@media print {
+    body {
+        background: #ffffff;
+        color: #000000;
+    }
+
+    body::before {
+        display: none;
+    }
+
+    .gg-sidebar,
+    .gg-header,
+    .gg-sidebar-overlay {
+        display: none;
+    }
+
+    .gg-dashboard__main {
+        margin-left: 0;
+    }
+
+    .gg-card,
+    .gg-metric-card,
+    .gg-chart-wrapper {
+        background: #ffffff;
+        border: 1px solid #cccccc;
+        box-shadow: none;
+        color: #000000;
+        break-inside: avoid;
+    }
+}

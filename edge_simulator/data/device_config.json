@@ -1,0 +1,55 @@
+{
+    "update_interval_seconds": 2,
+
+    "anomaly_probabilities": {
+        "voltage_spike_probability":    0.02,
+        "voltage_drop_probability":     0.02,
+        "high_current_probability":     0.015,
+        "excessive_power_probability":  0.01,
+        "high_temperature_probability": 0.015,
+        "device_offline_probability":   0.005
+    },
+
+    "devices": [
+        {
+            "device_id":        "GRID-001",
+            "location":         "Sector A-1",
+            "type":             "Substation",
+            "base_voltage":     230.0,
+            "base_current":     18.5,
+            "base_temperature": 54.0
+        },
+        {
+            "device_id":        "GRID-002",
+            "location":         "Sector A-2",
+            "type":             "Distribution",
+            "base_voltage":     230.0,
+            "base_current":     16.0,
+            "base_temperature": 48.0
+        },
+        {
+            "device_id":        "GRID-003",
+            "location":         "Sector B-3",
+            "type":             "Solar Inverter",
+            "base_voltage":     231.0,
+            "base_current":     21.0,
+            "base_temperature": 61.0
+        },
+        {
+            "device_id":        "GRID-004",
+            "location":         "Sector B-7",
+            "type":             "Wind Converter",
+            "base_voltage":     229.0,
+            "base_current":     14.5,
+            "base_temperature": 45.0
+        },
+        {
+            "device_id":        "GRID-005",
+            "location":         "Sector C-4",
+            "type":             "Transformer",
+            "base_voltage":     230.0,
+            "base_current":     19.0,
+            "base_temperature": 58.0
+        }
+    ]
+}

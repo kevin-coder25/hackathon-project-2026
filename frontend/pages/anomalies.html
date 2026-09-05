@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GridGuard AI — Anomalies</title>
+
+    <!-- Google Fonts: Inter + JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- GridGuard AI Design System (single entry point) -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+
+<!-- ====================================================================
+     DASHBOARD ROOT
+     ==================================================================== -->
+<div class="gg-dashboard" id="dashboard">
+
+    <!-- ================================================================
+         SIDEBAR NAVIGATION
+         ================================================================ -->
+    <aside class="gg-sidebar" id="sidebar" role="navigation" aria-label="Main navigation">
+
+        <!-- Brand -->
+        <div class="gg-sidebar__brand">
+            <svg class="gg-sidebar__brand-logo" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="2" y="2" width="28" height="28" rx="6" stroke="#00d4ff" stroke-width="2"/>
+                <path d="M16 6 L16 26 M6 16 L26 16 M9 9 L23 23 M23 9 L9 23" stroke="#00d4ff" stroke-width="1.2" opacity="0.35"/>
+                <circle cx="16" cy="16" r="4" fill="#00d4ff" opacity="0.85"/>
+                <circle cx="16" cy="6"  r="2" fill="#00d4ff"/>
+                <circle cx="16" cy="26" r="2" fill="#00d4ff"/>
+                <circle cx="6"  cy="16" r="2" fill="#00d4ff"/>
+                <circle cx="26" cy="16" r="2" fill="#00d4ff"/>
+            </svg>
+            <span class="gg-sidebar__brand-name">Grid<span>Guard</span> AI</span>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="gg-sidebar__nav">
+            <div class="gg-nav__section-label">Main</div>
+
+            <a href="../index.html" class="gg-nav-item" id="nav-overview">
+                <svg class="gg-nav-item__icon" viewBox="0 0 20 20" fill="currentColor"><path d="M3 4a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm9 0a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1V4zM3 13a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1H4a1 1 0 01-1-1v-3zm9 0a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-3z"/></svg>
+                Overview
+            </a>
+            <a href="live-monitoring.html" class="gg-nav-item" id="nav-monitoring">
+                <svg class="gg-nav-item__icon" viewBox="0 0 20 20" fill="currentColor"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zm6-4a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zm6-3a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg>
+                Live Monitoring
+            </a>
+            <a href="devices.html" class="gg-nav-item" id="nav-devices">
+                <svg class="gg-nav-item__icon" viewBox="0 0 20 20" fill="currentColor"><path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H5a1 1 0 01-1-1V7zm2 2v6h8V9H6z"/></svg>
+                Devices
+            </a>
+            <a href="anomalies.html" class="gg-nav-item gg-nav-item--active" id="nav-anomalies">
+                <svg class="gg-nav-item__icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 10-2 0 1 1 0 002 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+                Anomalies
+            </a>
+
+            <div class="gg-nav__section-label">Security</div>
+
+            <a href="intrusion-logs.html" class="gg-nav-item" id="nav-intrusion">
+                <svg class="gg-nav-item__icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 1.944A11.954 11.954 0 012.166 5C2.057 5.649 2 6.319 2 7c0 5.225 3.34 9.67 8 11.317C14.66 16.67 18 12.225 18 7c0-.682-.057-1.35-.166-2A11.954 11.954 0 0110 1.944z" clip-rule="evenodd"/></svg>
+                Intrusion Logs
+            </a>
+            <a href="analytics.html" class="gg-nav-item" id="nav-analytics">
+                <svg class="gg-nav-item__icon" viewBox="0 0 20 20" fill="currentColor"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"/><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"/></svg>
+                Analytics
+            </a>
+
+            <div class="gg-nav__section-label">System</div>
+
+            <a href="settings.html" class="gg-nav-item" id="nav-settings">
+                <svg class="gg-nav-item__icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/></svg>
+                Settings
+            </a>
+        </nav>
+
+        <!-- Sidebar footer -->
+        <div class="gg-sidebar__footer" id="sidebar-user">
+            <button type="button" class="gg-device-item gg-p-0" style="background:none;border:none;cursor:pointer;width:100%;text-align:left;padding:0;">
+                <div class="gg-device-item__icon" style="background: var(--accent-teal-muted); color: var(--accent-teal);">
+                    <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
+                </div>
+                <div class="gg-device-item__info">
+                    <div class="gg-device-item__name">Admin</div>
+                    <div class="gg-device-item__meta">admin@gridguard.ai</div>
+                </div>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Mobile sidebar overlay -->
+    <div class="gg-sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- ================================================================
+         MAIN CONTENT
+         ================================================================ -->
+    <div class="gg-dashboard__main">
+
+        <!-- ============================================================
+             TOP HEADER BAR
+             ============================================================ -->
+        <header class="gg-header" id="header">
+            <div class="gg-flex gg-items-center gg-gap-4">
+                <button class="gg-btn--icon gg-hidden" id="sidebar-toggle" aria-label="Toggle navigation" style="display:none;">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/></svg>
+                </button>
+                <h1 class="gg-header__title" id="header-title">Anomalies</h1>
+                <div class="gg-header__live" id="system-status">
+                    <span class="gg-status-dot gg-status-dot--ok gg-status-dot--pulse"></span>
+                    System Operational
+                </div>
+            </div>
+
+            <div class="gg-header__actions">
+                <span class="text-mono text-secondary" id="header-datetime" style="font-size: var(--text-sm);"></span>
+                <button class="gg-btn--icon gg-tooltip" data-tooltip="Notifications" id="btn-notifications" aria-label="Notifications">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zm0 16a3 3 0 01-3-3h6a3 3 0 01-3 3z"/></svg>
+                </button>
+                <button class="gg-btn--icon gg-tooltip" data-tooltip="Profile" id="btn-profile" aria-label="Profile">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- ============================================================
+             PAGE CONTENT
+             ============================================================ -->
+        <main class="gg-dashboard__content" id="main-content">
+
+            <!-- ========================================================
+                 SECTION: AI ANOMALY DETECTION PANEL
+                 ======================================================== -->
+            <section id="section-ai-detection" aria-label="AI anomaly detection">
+                <div class="gg-card gg-card--accent gg-animate-fade-in-up gg-delay-1" id="ai-detection-panel">
+                    <div class="gg-card__header">
+                        <span class="gg-card__title">AI Anomaly Detection Engine</span>
+                        <span class="gg-badge gg-badge--info">
+                            <span class="gg-status-dot gg-status-dot--cyan gg-status-dot--pulse"></span>
+                            Scanning
+                        </span>
+                    </div>
+
+                    <div class="gg-grid gg-grid--cols-4">
+                        <div class="gg-flex gg-flex-col gg-gap-2">
+                            <span class="label-uppercase">Model Version</span>
+                            <span class="metric-value metric-value--md" id="ai-model-version">v3.2.1</span>
+                        </div>
+                        <div class="gg-flex gg-flex-col gg-gap-2">
+                            <span class="label-uppercase">Detection Confidence</span>
+                            <span class="metric-value metric-value--md text-accent" id="ai-confidence">96.4%</span>
+                        </div>
+                        <div class="gg-flex gg-flex-col gg-gap-2">
+                            <span class="label-uppercase">Last Scan</span>
+                            <span class="metric-value metric-value--md" id="ai-last-scan">14:30 UTC</span>
+                        </div>
+                        <div class="gg-flex gg-flex-col gg-gap-2">
+                            <span class="label-uppercase">Signals Analysed</span>
+                            <span class="metric-value metric-value--md" id="ai-signals">1.2M / day</span>
+                        </div>
+                    </div>
+
+                    <div class="gg-card__footer">
+                        Model trained on 42 days of grid telemetry &mdash; updated 6 hours ago
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========================================================
+                 SECTION: ANOMALY KPI CARDS
+                 ======================================================== -->
+            <section id="section-anomaly-kpi" aria-label="Anomaly statistics" class="gg-mt-8">
+                <div class="gg-grid gg-grid--cols-4">
+
+                    <div class="gg-metric-card gg-metric-card--warning gg-animate-fade-in-up gg-delay-1" id="kpi-total-anomalies">
+                        <div class="gg-metric-card__label">
+                            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" style="color:var(--status-warning)"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 10-2 0 1 1 0 002 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+                            Active
+                        </div>
+                        <div>
+                            <span class="gg-metric-card__value">7</span>
+                        </div>
+                        <div class="gg-metric-card__trend gg-metric-card__trend--down">3 resolved today</div>
+                    </div>
+
+                    <div class="gg-metric-card gg-metric-card--critical gg-animate-fade-in-up gg-delay-2" id="kpi-critical-anomalies">
+                        <div class="gg-metric-card__label">
+                            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" style="color:var(--status-critical)"><path fill-rule="evenodd" d="M10 1.944A11.954 11.954 0 012.166 5C2.057 5.649 2 6.319 2 7c0 5.225 3.34 9.67 8 11.317C14.66 16.67 18 12.225 18 7c0-.682-.057-1.35-.166-2A11.954 11.954 0 0110 1.944z" clip-rule="evenodd"/></svg>
+                            Critical
+                        </div>
+                        <div>
+                            <span class="gg-metric-card__value">2</span>
+                        </div>
+                        <div class="gg-metric-card__trend gg-metric-card__trend--down">Require immediate action</div>
+                    </div>
+
+                    <div class="gg-metric-card gg-metric-card--teal gg-animate-fade-in-up gg-delay-3" id="kpi-investigating">
+                        <div class="gg-metric-card__label">
+                            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" style="color:var(--accent-teal)"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.477l4.817 4.816a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/></svg>
+                            Investigating
+                        </div>
+                        <div>
+                            <span class="gg-metric-card__value">3</span>
+                        </div>
+                        <div class="gg-metric-card__trend gg-metric-card__trend--flat">Under review by AI</div>
+                    </div>
+
+                    <div class="gg-metric-card gg-metric-card--ok gg-animate-fade-in-up gg-delay-4" id="kpi-resolved">
+                        <div class="gg-metric-card__label">
+                            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" style="color:var(--status-ok)"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                            Resolved (7d)
+                        </div>
+                        <div>
+                            <span class="gg-metric-card__value">24</span>
+                        </div>
+                        <div class="gg-metric-card__trend gg-metric-card__trend--up">Avg resolution: 18 min</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========================================================
+                 SECTION: ANOMALY TABLE
+                 ======================================================== -->
+            <section id="section-anomaly-table" aria-label="Anomaly log" class="gg-mt-8">
+                <div class="gg-card gg-animate-fade-in-up gg-delay-1" id="anomaly-table-panel">
+                    <div class="gg-card__header">
+                        <span class="gg-card__title">Detected Anomalies</span>
+                        <button class="gg-btn gg-btn--sm gg-btn--secondary" id="btn-export-anomalies">Export Log</button>
+                    </div>
+
+                    <div class="gg-table-wrapper">
+                        <table class="gg-table" id="anomalies-table">
+                            <thead>
+                                <tr>
+                                    <th>Severity</th>
+                                    <th>Device</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                    <th>Confidence</th>
+                                    <th>Detected</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="gg-badge gg-badge--critical">Critical</span></td>
+                                    <td class="text-mono">INV-0042</td>
+                                    <td>Power Surge</td>
+                                    <td>Unusual power spike &mdash; possible grid fault</td>
+                                    <td class="text-mono">98.7%</td>
+                                    <td class="text-mono text-tertiary" style="font-size:var(--text-xs);">14:32:07</td>
+                                    <td><span class="gg-badge gg-badge--critical">Active</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="gg-badge gg-badge--critical">Critical</span></td>
+                                    <td class="text-mono">FW-0091</td>
+                                    <td>Network Anomaly</td>
+                                    <td>Unauthorized access attempt blocked</td>
+                                    <td class="text-mono">97.1%</td>
+                                    <td class="text-mono text-tertiary" style="font-size:var(--text-xs);">13:44:55</td>
+                                    <td><span class="gg-badge gg-badge--ok">Blocked</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="gg-badge gg-badge--warning">Warning</span></td>
+                                    <td class="text-mono">SNS-0187</td>
+                                    <td>Temperature Spike</td>
+                                    <td>Temperature exceeding threshold (78.4 &deg;C)</td>
+                                    <td class="text-mono">94.2%</td>
+                                    <td class="text-mono text-tertiary" style="font-size:var(--text-xs);">14:28:41</td>
+                                    <td><span class="gg-badge gg-badge--warning">Investigating</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="gg-badge gg-badge--warning">Warning</span></td>
+                                    <td class="text-mono">GW-0015</td>
+                                    <td>Network Anomaly</td>
+                                    <td>Suspicious traffic pattern on gateway uplink</td>
+                                    <td class="text-mono">91.8%</td>
+                                    <td class="text-mono text-tertiary" style="font-size:var(--text-xs);">14:15:22</td>
+                                    <td><span class="gg-badge gg-badge--warning">Investigating</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="gg-badge gg-badge--warning">Warning</span></td>
+                                    <td class="text-mono">MTR-0011</td>
+                                    <td>Voltage Fluctuation</td>
+                                    <td>Phase imbalance detected on sector B-7</td>
+                                    <td class="text-mono">89.5%</td>
+                                    <td class="text-mono text-tertiary" style="font-size:var(--text-xs);">12:52:18</td>
+                                    <td><span class="gg-badge gg-badge--warning">Investigating</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="gg-badge gg-badge--info">Info</span></td>
+                                    <td class="text-mono">MTR-0003</td>
+                                    <td>Voltage Fluctuation</td>
+                                    <td>Voltage fluctuation within acceptable range</td>
+                                    <td class="text-mono">85.3%</td>
+                                    <td class="text-mono text-tertiary" style="font-size:var(--text-xs);">13:57:09</td>
+                                    <td><span class="gg-badge gg-badge--ok">Resolved</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="gg-badge gg-badge--info">Info</span></td>
+                                    <td class="text-mono">SNS-0203</td>
+                                    <td>Other</td>
+                                    <td>Telemetry gap during firmware update</td>
+                                    <td class="text-mono">82.0%</td>
+                                    <td class="text-mono text-tertiary" style="font-size:var(--text-xs);">11:03:47</td>
+                                    <td><span class="gg-badge gg-badge--ok">Resolved</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="gg-card__footer">
+                        7 active anomalies &bull; 24 resolved in the last 7 days
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+</div>
+
+<!-- ====================================================================
+     SCRIPTS
+     ==================================================================== -->
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- GridGuard AI — Modular JS (load order matters) -->
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/auth.js"></script>
+<script src="../assets/js/simulation.js"></script>
+<script src="../assets/js/charts.js"></script>
+<script src="../assets/js/dashboard.js"></script>
+
+</body>
+</html>

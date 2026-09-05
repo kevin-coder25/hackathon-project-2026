@@ -1,0 +1,227 @@
+/* ========================================================================
+   GRIDGUARD AI — Layout
+   ========================================================================
+   Grid systems, page structure and layout utility classes.
+   ======================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   1. DASHBOARD LAYOUT (sidebar + main content)
+   -------------------------------------------------------------------------- */
+
+/* The root wrapper for the entire dashboard page */
+.gg-dashboard {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Main content area — offset by sidebar width */
+.gg-dashboard__main {
+    flex: 1;
+    margin-left: var(--sidebar-width);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: margin-left var(--transition-slow);
+}
+
+/* Content area below the header */
+.gg-dashboard__content {
+    flex: 1;
+    padding: var(--content-padding);
+    max-width: var(--content-max-width);
+    width: 100%;
+}
+
+
+/* --------------------------------------------------------------------------
+   2. CSS GRID — Dashboard Widget Grid
+   -------------------------------------------------------------------------- */
+
+/* Auto-fill responsive grid — cards size themselves */
+.gg-grid {
+    display: grid;
+    gap: var(--gap-card);
+}
+
+/* Fixed column counts */
+.gg-grid--cols-1 { grid-template-columns: 1fr; }
+.gg-grid--cols-2 { grid-template-columns: repeat(2, 1fr); }
+.gg-grid--cols-3 { grid-template-columns: repeat(3, 1fr); }
+.gg-grid--cols-4 { grid-template-columns: repeat(4, 1fr); }
+.gg-grid--cols-5 { grid-template-columns: repeat(5, 1fr); }
+.gg-grid--cols-6 { grid-template-columns: repeat(6, 1fr); }
+
+/* Auto-fill: cards wrap and maintain a minimum width */
+.gg-grid--auto-200 { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+.gg-grid--auto-250 { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+.gg-grid--auto-300 { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+.gg-grid--auto-350 { grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); }
+
+/* Spanning helpers */
+.gg-col-span-1 { grid-column: span 1; }
+.gg-col-span-2 { grid-column: span 2; }
+.gg-col-span-3 { grid-column: span 3; }
+.gg-col-span-4 { grid-column: span 4; }
+.gg-col-span-full { grid-column: 1 / -1; }
+
+.gg-row-span-2 { grid-row: span 2; }
+.gg-row-span-3 { grid-row: span 3; }
+
+
+/* --------------------------------------------------------------------------
+   3. FLEX UTILITIES
+   -------------------------------------------------------------------------- */
+
+.gg-flex          { display: flex; }
+.gg-flex-col      { display: flex; flex-direction: column; }
+.gg-flex-row      { display: flex; flex-direction: row; }
+.gg-flex-wrap     { flex-wrap: wrap; }
+.gg-flex-1        { flex: 1; }
+.gg-flex-shrink-0 { flex-shrink: 0; }
+
+/* Alignment */
+.gg-items-center   { align-items: center; }
+.gg-items-start    { align-items: flex-start; }
+.gg-items-end      { align-items: flex-end; }
+.gg-items-stretch  { align-items: stretch; }
+
+.gg-justify-center  { justify-content: center; }
+.gg-justify-between { justify-content: space-between; }
+.gg-justify-end     { justify-content: flex-end; }
+.gg-justify-start   { justify-content: flex-start; }
+
+.gg-gap-1 { gap: var(--space-1); }
+.gg-gap-2 { gap: var(--space-2); }
+.gg-gap-3 { gap: var(--space-3); }
+.gg-gap-4 { gap: var(--space-4); }
+.gg-gap-5 { gap: var(--space-5); }
+.gg-gap-6 { gap: var(--space-6); }
+.gg-gap-8 { gap: var(--space-8); }
+
+
+/* --------------------------------------------------------------------------
+   4. SPACING UTILITIES
+   -------------------------------------------------------------------------- */
+
+/* Padding */
+.gg-p-0  { padding: 0; }
+.gg-p-2  { padding: var(--space-2); }
+.gg-p-3  { padding: var(--space-3); }
+.gg-p-4  { padding: var(--space-4); }
+.gg-p-5  { padding: var(--space-5); }
+.gg-p-6  { padding: var(--space-6); }
+.gg-p-8  { padding: var(--space-8); }
+
+.gg-px-4 { padding-left: var(--space-4); padding-right: var(--space-4); }
+.gg-px-6 { padding-left: var(--space-6); padding-right: var(--space-6); }
+.gg-py-3 { padding-top: var(--space-3); padding-bottom: var(--space-3); }
+.gg-py-4 { padding-top: var(--space-4); padding-bottom: var(--space-4); }
+
+/* Margin */
+.gg-m-0  { margin: 0; }
+.gg-mt-2 { margin-top: var(--space-2); }
+.gg-mt-4 { margin-top: var(--space-4); }
+.gg-mt-6 { margin-top: var(--space-6); }
+.gg-mt-8 { margin-top: var(--space-8); }
+.gg-mb-2 { margin-bottom: var(--space-2); }
+.gg-mb-4 { margin-bottom: var(--space-4); }
+.gg-mb-6 { margin-bottom: var(--space-6); }
+.gg-mb-8 { margin-bottom: var(--space-8); }
+
+
+/* --------------------------------------------------------------------------
+   5. WIDTH & HEIGHT UTILITIES
+   -------------------------------------------------------------------------- */
+
+.gg-w-full    { width: 100%; }
+.gg-h-full    { height: 100%; }
+.gg-min-h-screen { min-height: 100vh; }
+
+.gg-max-w-sm  { max-width: 480px; }
+.gg-max-w-md  { max-width: 640px; }
+.gg-max-w-lg  { max-width: 960px; }
+.gg-max-w-xl  { max-width: 1200px; }
+
+
+/* --------------------------------------------------------------------------
+   6. POSITION UTILITIES
+   -------------------------------------------------------------------------- */
+
+.gg-relative { position: relative; }
+.gg-absolute  { position: absolute;  }
+.gg-fixed     { position: fixed;     }
+.gg-sticky    { position: sticky; top: 0; }
+
+
+/* --------------------------------------------------------------------------
+   7. VISIBILITY UTILITIES
+   -------------------------------------------------------------------------- */
+
+.gg-hidden       { display: none; }
+.gg-visible      { visibility: visible; }
+.gg-invisible    { visibility: hidden; }
+.gg-opacity-0    { opacity: 0; }
+.gg-opacity-50   { opacity: 0.5; }
+.gg-opacity-100  { opacity: 1; }
+.gg-overflow-hidden { overflow: hidden; }
+
+
+/* --------------------------------------------------------------------------
+   8. LOGIN PAGE LAYOUT
+   -------------------------------------------------------------------------- */
+
+/* Centered layout for the login page */
+.gg-login-layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: var(--bg-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.gg-login-layout__card {
+    width: 100%;
+    max-width: 420px;
+    padding: var(--space-10);
+    background: var(--bg-surface-raised);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+    position: relative;
+    z-index: 2;
+}
+
+.gg-login-layout__brand {
+    text-align: center;
+    margin-bottom: var(--space-8);
+}
+
+.gg-login-layout__logo {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto var(--space-4);
+}
+
+.gg-login-layout__title {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    color: var(--text-heading);
+    margin-bottom: var(--space-2);
+}
+
+.gg-login-layout__tagline {
+    font-size: var(--text-sm);
+    color: var(--text-tertiary);
+}
+
+/* Background energy-grid visual for the login page */
+.gg-login-layout__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}

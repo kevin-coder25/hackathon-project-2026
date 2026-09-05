@@ -1,0 +1,244 @@
+/* ========================================================================
+   GRIDGUARD AI — Animations
+   ========================================================================
+   Keyframe animations and micro-interaction utilities.
+   Keep animations subtle, professional and performance-friendly.
+   ======================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   1. KEYFRAME ANIMATIONS
+   -------------------------------------------------------------------------- */
+
+/* Pulsing glow for active status dots */
+@keyframes statusPulse {
+    0%, 100% { opacity: 1;   transform: scale(1);   }
+    50%      { opacity: 0.6; transform: scale(1.25); }
+}
+
+/* Fade in from below — used for cards and panels on page load */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade in — generic opacity transition */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Slide in from the left — sidebar entrance */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Subtle scale-up for card hover emphasis */
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Rotating ring — for loading spinners */
+@keyframes spin {
+    from { transform: rotate(0deg);   }
+    to   { transform: rotate(360deg); }
+}
+
+/* Pulsing opacity — for "LIVE" indicator or scanning effects */
+@keyframes pulse {
+    0%, 100% { opacity: 1;   }
+    50%      { opacity: 0.4; }
+}
+
+/* Glow shimmer — subtle shimmer effect on accent borders */
+@keyframes glowShimmer {
+    0%, 100% { opacity: 0.3; }
+    50%      { opacity: 0.7; }
+}
+
+/* Scanning line — horizontal scanning effect for grid viz */
+@keyframes scanLine {
+    0%   { transform: translateY(0);    opacity: 0; }
+    10%  { opacity: 0.6; }
+    90%  { opacity: 0.6; }
+    100% { transform: translateY(100%); opacity: 0; }
+}
+
+/* Data flow — flowing dots along a path (for network viz) */
+@keyframes dataFlow {
+    0%   { offset-distance: 0%;   opacity: 0; }
+    10%  { opacity: 1; }
+    90%  { opacity: 1; }
+    100% { offset-distance: 100%; opacity: 0; }
+}
+
+
+/* --------------------------------------------------------------------------
+   2. ANIMATION UTILITY CLASSES
+   -------------------------------------------------------------------------- */
+
+/* Apply fade-in-up with staggered delays for dashboard cards */
+.gg-animate-fade-in-up {
+    animation: fadeInUp 0.5s ease both;
+}
+
+.gg-animate-fade-in {
+    animation: fadeIn 0.4s ease both;
+}
+
+.gg-animate-slide-in-left {
+    animation: slideInLeft 0.4s ease both;
+}
+
+.gg-animate-scale-in {
+    animation: scaleIn 0.3s ease both;
+}
+
+/* Stagger delays — apply to sequential items */
+.gg-delay-1 { animation-delay: 0.05s; }
+.gg-delay-2 { animation-delay: 0.10s; }
+.gg-delay-3 { animation-delay: 0.15s; }
+.gg-delay-4 { animation-delay: 0.20s; }
+.gg-delay-5 { animation-delay: 0.25s; }
+.gg-delay-6 { animation-delay: 0.30s; }
+.gg-delay-7 { animation-delay: 0.35s; }
+.gg-delay-8 { animation-delay: 0.40s; }
+
+
+/* --------------------------------------------------------------------------
+   3. MICRO-INTERACTION HELPERS
+   -------------------------------------------------------------------------- */
+
+/* Smooth hover lift — cards and buttons */
+.gg-hover-lift {
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.gg-hover-lift:hover {
+    transform: translateY(-2px);
+}
+
+/* Subtle glow on hover */
+.gg-hover-glow:hover {
+    box-shadow: var(--glow-cyan);
+}
+
+/* Scale on hover — small interactive elements */
+.gg-hover-scale {
+    transition: transform var(--transition-fast);
+}
+
+.gg-hover-scale:hover {
+    transform: scale(1.05);
+}
+
+/* Icon rotate on hover — expand/collapse arrows */
+.gg-hover-rotate {
+    transition: transform var(--transition-base);
+}
+
+.gg-hover-rotate:hover {
+    transform: rotate(90deg);
+}
+
+
+/* --------------------------------------------------------------------------
+   4. LOADING STATES
+   -------------------------------------------------------------------------- */
+
+/* Spinner */
+.gg-spinner {
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--border-default);
+    border-top-color: var(--accent-cyan);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+.gg-spinner--sm {
+    width: 16px;
+    height: 16px;
+    border-width: 2px;
+}
+
+.gg-spinner--lg {
+    width: 40px;
+    height: 40px;
+    border-width: 3px;
+}
+
+/* Skeleton loading — placeholder shimmer for loading cards */
+.gg-skeleton {
+    background: linear-gradient(
+        90deg,
+        var(--bg-surface) 0%,
+        var(--bg-surface-raised) 50%,
+        var(--bg-surface) 100%
+    );
+    background-size: 200% 100%;
+    animation: skeletonShimmer 1.5s ease-in-out infinite;
+    border-radius: var(--radius-md);
+}
+
+@keyframes skeletonShimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+.gg-skeleton--text {
+    height: 14px;
+    width: 80%;
+    margin-bottom: var(--space-2);
+}
+
+.gg-skeleton--heading {
+    height: 24px;
+    width: 50%;
+    margin-bottom: var(--space-3);
+}
+
+.gg-skeleton--metric {
+    height: 40px;
+    width: 40%;
+}
+
+.gg-skeleton--chart {
+    height: 200px;
+    width: 100%;
+}
+
+
+/* --------------------------------------------------------------------------
+   5. REDUCED MOTION — Accessibility
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

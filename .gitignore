@@ -1,0 +1,18 @@
+# --- Python backend ------------------------------------------------------
+backend/venv/
+backend/gridguard.db
+__pycache__/
+*.pyc
+
+# --- C++ simulator build artifacts ---------------------------------------
+edge_simulator/build/
+
+# --- Vendored MQTT C++ library source ------------------------------------
+# Built and installed locally (Paho C/C++ → /usr/local); not needed at
+# runtime. Remove this line if you want to vendor the library source.
+paho.mqtt.cpp/
+
+# --- Local misc ----------------------------------------------------------
+mosquitto.db
+.DS_Store
+.idea/

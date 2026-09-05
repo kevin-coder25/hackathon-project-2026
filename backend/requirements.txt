@@ -1,0 +1,6 @@
+# GridGuard AI backend — Python dependencies.
+#
+# The backend is deliberately built on the Python standard library
+# (http.server, sqlite3, threading); the ONLY third-party dependency
+# is the MQTT client used by the Mosquitto bridge.
+paho-mqtt>=2.0,<3.0

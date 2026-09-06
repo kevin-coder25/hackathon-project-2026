@@ -1,18 +1,31 @@
-# --- Python backend ------------------------------------------------------
+# --- Python backend -------------------------------------------
 backend/venv/
 backend/gridguard.db
 __pycache__/
 *.pyc
+*.db
+*.sqlite
 
-# --- C++ simulator build artifacts ---------------------------------------
+# --- Environment & Secrets (CRITICAL FOR HACKATHON) -----------
+.env
+.env.*
+!.env.example
+
+# --- C++ simulator build artifacts -----------------------------
 edge_simulator/build/
+*.o
+*.out
+*.exe
 
-# --- Vendored MQTT C++ library source ------------------------------------
-# Built and installed locally (Paho C/C++ → /usr/local); not needed at
-# runtime. Remove this line if you want to vendor the library source.
+# --- Vendored MQTT C++ library source -------------------------
 paho.mqtt.cpp/
 
-# --- Local misc ----------------------------------------------------------
+# --- Editor & IDE Configurations -------------------------------
+.qoder/
+.vscode/
+.idea/
+
+# --- Local misc -----------------------------------------------
 mosquitto.db
 .DS_Store
-.idea/
+Thumbs.db

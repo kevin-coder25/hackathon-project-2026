@@ -1,0 +1,886 @@
+/* ========================================================================
+   GRIDGUARD AI — Components
+   ========================================================================
+   Reusable UI component styles that consume design-system.css tokens.
+   ======================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   1. CARDS
+   -------------------------------------------------------------------------- */
+
+/* Base card — the primary elevated surface for dashboard widgets */
+.gg-card {
+    background: var(--bg-surface-raised);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    box-shadow: var(--card-shadow);
+    transition:
+        box-shadow var(--transition-base),
+        border-color var(--transition-base),
+        transform var(--transition-base);
+}
+
+.gg-card:hover {
+    border-color: var(--border-medium);
+    box-shadow: var(--card-shadow-hover);
+}
+
+/* Card with subtle cyan top-glow — use for important/featured cards */
+.gg-card--accent {
+    border-color: var(--border-accent);
+    box-shadow: var(--card-shadow), var(--glow-cyan);
+}
+
+.gg-card--accent:hover {
+    border-color: var(--accent-cyan-border);
+    box-shadow: var(--card-shadow-hover), var(--glow-cyan-strong);
+}
+
+/* Card header — typically contains a label and optional icon */
+.gg-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-4);
+}
+
+.gg-card__title {
+    font-size: var(--text-xs);
+    font-weight: var(--font-semibold);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+}
+
+.gg-card__icon {
+    width: 20px;
+    height: 20px;
+    color: var(--text-tertiary);
+}
+
+/* Card body — wraps the main content / metric */
+.gg-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+/* Card footer — for timestamps, links or secondary info */
+.gg-card__footer {
+    margin-top: var(--space-4);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--border-subtle);
+    font-size: var(--text-sm);
+    color: var(--text-tertiary);
+}
+
+/* ---- Metric Card Variant ---- */
+/* Compact card designed for KPI / real-time metric display               */
+.gg-metric-card {
+    background: var(--bg-surface-raised);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    box-shadow: var(--card-shadow);
+    transition:
+        box-shadow var(--transition-base),
+        border-color var(--transition-base);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.gg-metric-card:hover {
+    border-color: var(--border-medium);
+    box-shadow: var(--card-shadow-hover);
+}
+
+.gg-metric-card__label {
+    font-size: var(--text-xs);
+    font-weight: var(--font-semibold);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.gg-metric-card__value {
+    font-family: var(--font-mono);
+    font-size: var(--metric-lg);
+    font-weight: var(--font-bold);
+    color: var(--text-heading);
+    line-height: 1;
+}
+
+.gg-metric-card__unit {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    color: var(--text-tertiary);
+    margin-left: var(--space-1);
+}
+
+.gg-metric-card__trend {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+}
+
+.gg-metric-card__trend--up   { color: var(--status-ok);       }
+.gg-metric-card__trend--down { color: var(--status-critical);  }
+.gg-metric-card__trend--flat { color: var(--text-tertiary);    }
+
+/* Colored left-border accent for metric cards */
+.gg-metric-card--cyan    { border-left: 3px solid var(--accent-cyan);   }
+.gg-metric-card--teal    { border-left: 3px solid var(--accent-teal);   }
+.gg-metric-card--ok      { border-left: 3px solid var(--status-ok);     }
+.gg-metric-card--warning { border-left: 3px solid var(--status-warning); }
+.gg-metric-card--critical{ border-left: 3px solid var(--status-critical); }
+
+
+/* --------------------------------------------------------------------------
+   2. BUTTONS
+   -------------------------------------------------------------------------- */
+
+/* Base button reset & shared styles */
+.gg-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    font-family: var(--font-sans);
+    font-weight: var(--font-medium);
+    line-height: 1;
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition:
+        background-color var(--transition-base),
+        color var(--transition-base),
+        box-shadow var(--transition-base),
+        transform var(--transition-fast);
+    white-space: nowrap;
+    user-select: none;
+}
+
+.gg-btn:active {
+    transform: scale(0.98);
+}
+
+.gg-btn:focus-visible {
+    outline: 2px solid var(--border-focus);
+    outline-offset: 2px;
+}
+
+/* Sizes */
+.gg-btn--sm {
+    font-size: var(--text-sm);
+    padding: var(--space-2) var(--space-3);
+    height: 32px;
+}
+
+.gg-btn--md {
+    font-size: var(--text-base);
+    padding: var(--space-2) var(--space-5);
+    height: 38px;
+}
+
+.gg-btn--lg {
+    font-size: var(--text-md);
+    padding: var(--space-3) var(--space-6);
+    height: 46px;
+}
+
+/* Primary — filled cyan */
+.gg-btn--primary {
+    background: var(--accent-cyan);
+    color: var(--text-inverse);
+    font-weight: var(--font-semibold);
+}
+
+.gg-btn--primary:hover {
+    background: var(--accent-cyan-bright);
+    box-shadow: var(--glow-cyan);
+}
+
+/* Secondary — outlined */
+.gg-btn--secondary {
+    background: transparent;
+    color: var(--accent-cyan);
+    border: 1px solid var(--accent-cyan-border);
+}
+
+.gg-btn--secondary:hover {
+    background: var(--accent-cyan-muted);
+    border-color: var(--accent-cyan);
+}
+
+/* Ghost — no border, subtle hover */
+.gg-btn--ghost {
+    background: transparent;
+    color: var(--text-secondary);
+}
+
+.gg-btn--ghost:hover {
+    background: var(--bg-surface-hover);
+    color: var(--text-primary);
+}
+
+/* Danger — for destructive / critical actions */
+.gg-btn--danger {
+    background: var(--status-critical);
+    color: #ffffff;
+    font-weight: var(--font-semibold);
+}
+
+.gg-btn--danger:hover {
+    background: var(--status-critical-dim);
+    box-shadow: var(--glow-critical);
+}
+
+/* Icon-only button (square) */
+.gg-btn--icon {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    background: transparent;
+    color: var(--text-secondary);
+    border-radius: var(--radius-md);
+}
+
+.gg-btn--icon:hover {
+    background: var(--bg-surface-hover);
+    color: var(--text-primary);
+}
+
+
+/* --------------------------------------------------------------------------
+   3. STATUS INDICATORS
+   -------------------------------------------------------------------------- */
+
+/* ---- Status Dot ---- */
+.gg-status-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: var(--radius-full);
+    flex-shrink: 0;
+}
+
+.gg-status-dot--ok       { background: var(--status-ok);       box-shadow: var(--glow-ok);       }
+.gg-status-dot--warning  { background: var(--status-warning);  box-shadow: var(--glow-warning);  }
+.gg-status-dot--critical { background: var(--status-critical); box-shadow: var(--glow-critical); }
+.gg-status-dot--neutral  { background: var(--status-neutral);  }
+.gg-status-dot--cyan     { background: var(--accent-cyan);     box-shadow: var(--glow-cyan);     }
+
+/* Pulsing animation for active status dots */
+.gg-status-dot--pulse {
+    animation: statusPulse 2s ease-in-out infinite;
+}
+
+/* ---- Status Badge ---- */
+.gg-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-1) var(--space-3);
+    font-size: var(--text-xs);
+    font-weight: var(--font-semibold);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    border-radius: var(--radius-full);
+    line-height: 1.4;
+}
+
+.gg-badge--ok {
+    background: var(--status-ok-bg);
+    color: var(--status-ok);
+    border: 1px solid var(--status-ok-border);
+}
+
+.gg-badge--warning {
+    background: var(--status-warning-bg);
+    color: var(--status-warning);
+    border: 1px solid var(--status-warning-border);
+}
+
+.gg-badge--critical {
+    background: var(--status-critical-bg);
+    color: var(--status-critical);
+    border: 1px solid var(--status-critical-border);
+}
+
+.gg-badge--info {
+    background: var(--accent-cyan-muted);
+    color: var(--accent-cyan);
+    border: 1px solid var(--accent-cyan-border);
+}
+
+.gg-badge--neutral {
+    background: var(--status-neutral-bg);
+    color: var(--status-neutral);
+    border: 1px solid rgba(100, 116, 139, 0.25);
+}
+
+/* ---- Status Bar / Progress ---- */
+.gg-status-bar {
+    height: 4px;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.06);
+    overflow: hidden;
+}
+
+.gg-status-bar__fill {
+    height: 100%;
+    border-radius: var(--radius-full);
+    transition: width var(--transition-slow);
+}
+
+.gg-status-bar__fill--ok       { background: var(--status-ok);       }
+.gg-status-bar__fill--warning  { background: var(--status-warning);  }
+.gg-status-bar__fill--critical { background: var(--status-critical); }
+.gg-status-bar__fill--cyan     { background: var(--accent-cyan);     }
+.gg-status-bar__fill--teal     { background: var(--accent-teal);     }
+
+
+/* --------------------------------------------------------------------------
+   4. FORM ELEMENTS
+   -------------------------------------------------------------------------- */
+
+/* ---- Text Input ---- */
+.gg-input {
+    width: 100%;
+    height: 42px;
+    padding: var(--space-2) var(--space-4);
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    color: var(--text-primary);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+    transition:
+        border-color var(--transition-base),
+        box-shadow var(--transition-base);
+}
+
+.gg-input::placeholder {
+    color: var(--text-tertiary);
+}
+
+.gg-input:focus {
+    outline: none;
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.12);
+}
+
+.gg-input:hover:not(:focus) {
+    border-color: var(--border-medium);
+}
+
+/* ---- Label ---- */
+.gg-label {
+    display: block;
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-2);
+}
+
+/* ---- Input Group (label + input) ---- */
+.gg-form-group {
+    margin-bottom: var(--space-5);
+}
+
+/* ---- Checkbox ---- */
+.gg-checkbox {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    cursor: pointer;
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+}
+
+.gg-checkbox input[type="checkbox"] {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--border-medium);
+    border-radius: var(--radius-sm);
+    background: var(--bg-surface);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    flex-shrink: 0;
+}
+
+.gg-checkbox input[type="checkbox"]:checked {
+    background: var(--accent-cyan);
+    border-color: var(--accent-cyan);
+}
+
+.gg-checkbox input[type="checkbox"]:focus-visible {
+    outline: 2px solid var(--border-focus);
+    outline-offset: 2px;
+}
+
+/* ---- Select ---- */
+.gg-select {
+    width: 100%;
+    height: 42px;
+    padding: var(--space-2) var(--space-4);
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    color: var(--text-primary);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: border-color var(--transition-base);
+}
+
+.gg-select:focus {
+    outline: none;
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.12);
+}
+
+
+/* --------------------------------------------------------------------------
+   5. SIDEBAR / NAVIGATION
+   -------------------------------------------------------------------------- */
+
+.gg-sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: var(--bg-surface);
+    border-right: 1px solid var(--border-subtle);
+    display: flex;
+    flex-direction: column;
+    z-index: var(--z-sidebar);
+    transition: width var(--transition-slow);
+}
+
+/* Brand area at top of sidebar */
+.gg-sidebar__brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-5) var(--space-5);
+    height: var(--header-height);
+    border-bottom: 1px solid var(--border-subtle);
+    flex-shrink: 0;
+}
+
+.gg-sidebar__brand-logo {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+}
+
+.gg-sidebar__brand-name {
+    font-size: var(--text-lg);
+    font-weight: var(--font-bold);
+    color: var(--text-heading);
+    letter-spacing: var(--tracking-tight);
+}
+
+.gg-sidebar__brand-name span {
+    color: var(--accent-cyan);
+}
+
+/* Navigation list */
+.gg-sidebar__nav {
+    flex: 1;
+    padding: var(--space-4) var(--space-3);
+    overflow-y: auto;
+}
+
+.gg-nav__section-label {
+    font-size: var(--text-xs);
+    font-weight: var(--font-semibold);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    padding: var(--space-4) var(--space-3) var(--space-2);
+}
+
+.gg-nav-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-3);
+    border-radius: var(--radius-md);
+    font-size: var(--text-base);
+    font-weight: var(--font-medium);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition:
+        background-color var(--transition-base),
+        color var(--transition-base);
+    text-decoration: none;
+    margin-bottom: 2px;
+}
+
+.gg-nav-item:hover {
+    background: var(--bg-surface-raised);
+    color: var(--text-primary);
+}
+
+.gg-nav-item--active {
+    background: var(--accent-cyan-muted);
+    color: var(--accent-cyan);
+    border-left: 2px solid var(--accent-cyan);
+}
+
+.gg-nav-item__icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    opacity: 0.7;
+}
+
+.gg-nav-item--active .gg-nav-item__icon {
+    opacity: 1;
+    color: var(--accent-cyan);
+}
+
+/* Sidebar footer (user info, settings) */
+.gg-sidebar__footer {
+    padding: var(--space-4) var(--space-5);
+    border-top: 1px solid var(--border-subtle);
+    flex-shrink: 0;
+}
+
+
+/* --------------------------------------------------------------------------
+   6. TOP HEADER BAR
+   -------------------------------------------------------------------------- */
+
+.gg-header {
+    height: var(--header-height);
+    background: var(--bg-surface);
+    border-bottom: 1px solid var(--border-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--space-6);
+    position: sticky;
+    top: 0;
+    z-index: var(--z-sticky);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.gg-header__title {
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    color: var(--text-heading);
+}
+
+.gg-header__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+/* Live indicator — small pulsing dot + "LIVE" label */
+.gg-header__live {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-xs);
+    font-weight: var(--font-semibold);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--status-ok);
+}
+
+
+/* --------------------------------------------------------------------------
+   7. CHART CONTAINERS
+   -------------------------------------------------------------------------- */
+
+.gg-chart-wrapper {
+    background: var(--bg-surface-raised);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    box-shadow: var(--card-shadow);
+}
+
+.gg-chart-wrapper__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-4);
+}
+
+.gg-chart-wrapper__title {
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+}
+
+.gg-chart-wrapper__canvas {
+    position: relative;
+    width: 100%;
+    /* Height is set inline or via layout classes */
+}
+
+
+/* --------------------------------------------------------------------------
+   8. ALERTS / NOTIFICATIONS
+   -------------------------------------------------------------------------- */
+
+.gg-alert {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+    border: 1px solid;
+}
+
+.gg-alert--ok {
+    background: var(--status-ok-bg);
+    border-color: var(--status-ok-border);
+    color: var(--status-ok);
+}
+
+.gg-alert--warning {
+    background: var(--status-warning-bg);
+    border-color: var(--status-warning-border);
+    color: var(--status-warning);
+}
+
+.gg-alert--critical {
+    background: var(--status-critical-bg);
+    border-color: var(--status-critical-border);
+    color: var(--status-critical);
+}
+
+.gg-alert--info {
+    background: var(--accent-cyan-muted);
+    border-color: var(--accent-cyan-border);
+    color: var(--accent-cyan);
+}
+
+.gg-alert__icon {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    margin-top: 1px;
+}
+
+.gg-alert__content {
+    flex: 1;
+    min-width: 0;
+}
+
+.gg-alert__time {
+    font-size: var(--text-xs);
+    color: var(--text-tertiary);
+    margin-top: var(--space-1);
+}
+
+
+/* --------------------------------------------------------------------------
+   9. DATA TABLES
+   -------------------------------------------------------------------------- */
+
+.gg-table-wrapper {
+    overflow-x: auto;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-default);
+}
+
+.gg-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--text-sm);
+}
+
+.gg-table thead {
+    background: var(--bg-surface);
+}
+
+.gg-table th {
+    padding: var(--space-3) var(--space-4);
+    text-align: left;
+    font-size: var(--text-xs);
+    font-weight: var(--font-semibold);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    border-bottom: 1px solid var(--border-default);
+}
+
+.gg-table tbody tr {
+    border-bottom: 1px solid var(--border-subtle);
+    transition: background-color var(--transition-base);
+}
+
+.gg-table tbody tr:hover {
+    background: var(--bg-surface-hover);
+}
+
+.gg-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.gg-table td {
+    padding: var(--space-3) var(--space-4);
+    color: var(--text-secondary);
+    vertical-align: middle;
+}
+
+.gg-table td:first-child {
+    color: var(--text-primary);
+    font-weight: var(--font-medium);
+}
+
+
+/* --------------------------------------------------------------------------
+   10. DEVICE / NODE LIST ITEMS
+   -------------------------------------------------------------------------- */
+
+.gg-device-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    transition: background-color var(--transition-base);
+}
+
+.gg-device-item:hover {
+    background: var(--bg-surface-hover);
+}
+
+.gg-device-item__icon {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: var(--accent-cyan-muted);
+    color: var(--accent-cyan);
+}
+
+.gg-device-item__info {
+    flex: 1;
+    min-width: 0;
+}
+
+.gg-device-item__name {
+    font-size: var(--text-base);
+    font-weight: var(--font-medium);
+    color: var(--text-primary);
+}
+
+.gg-device-item__meta {
+    font-size: var(--text-xs);
+    color: var(--text-tertiary);
+}
+
+.gg-device-item__status {
+    flex-shrink: 0;
+}
+
+
+/* --------------------------------------------------------------------------
+   11. TOOLTIPS & POPOVERS
+   -------------------------------------------------------------------------- */
+
+.gg-tooltip {
+    position: relative;
+}
+
+.gg-tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--text-xs);
+    font-weight: var(--font-medium);
+    color: var(--text-primary);
+    background: var(--bg-surface-overlay);
+    border: 1px solid var(--border-medium);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-base);
+    z-index: var(--z-tooltip);
+}
+
+.gg-tooltip:hover::after {
+    opacity: 1;
+}
+
+
+/* --------------------------------------------------------------------------
+   12. DIVIDERS & DECORATIVE ELEMENTS
+   -------------------------------------------------------------------------- */
+
+/* Horizontal separator */
+.gg-divider {
+    height: 1px;
+    background: var(--border-default);
+    border: none;
+    margin: var(--space-4) 0;
+}
+
+/* Glowing accent line — used for visual emphasis */
+.gg-glow-line {
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--accent-cyan),
+        transparent
+    );
+    border: none;
+    opacity: 0.4;
+    margin: var(--space-6) 0;
+}
+
+/* Section divider with label */
+.gg-section-divider {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin: var(--space-8) 0 var(--space-6);
+}
+
+.gg-section-divider__label {
+    font-size: var(--text-xs);
+    font-weight: var(--font-semibold);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    white-space: nowrap;
+}
+
+.gg-section-divider__line {
+    flex: 1;
+    height: 1px;
+    background: var(--border-default);
+}

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GridGuard AI — Analytics</title>
+
+    <!-- Google Fonts: Inter + JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- GridGuard AI Design System (single entry point) -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+
+<!-- ====================================================================
+     DASHBOARD ROOT
+     ==================================================================== -->
+<div class="gg-dashboard" id="dashboard">
+
+    <!-- ================================================================
+         SIDEBAR NAVIGATION
+         ================================================================ -->
+    <aside class="gg-sidebar" id="sidebar" role="navigation" aria-label="Main navigation">
+
+        <!-- Brand -->
+        <div class="gg-sidebar__brand">
+            <svg class="gg-sidebar__brand-logo" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="2" y="2" width="28" height="28" rx="6" stroke="#00d4ff" stroke-width="2"/>
+                <path d="M16 6 L16 26 M6 16 L26 16 M9 9 L23 23 M23 9 L9 23" stroke="#00d4ff" stroke-width="1.2" opacity="0.35"/>
+                <circle cx="16" cy="16" r="4" fill="#00d4ff" opacity="0.85"/>
+                <circle cx="16" cy="6"  r="2" fill="#00d4ff"/>
+                <circle cx="16" cy="26" r="2" fill="#00d4ff"/>
+                <circle cx="6"  cy="16" r="2" fill="#00d4ff"/>
+                <circle cx="26" cy="16" r="2" fill="#00d4ff"/>
+            </svg>
+            <span class="gg-sidebar__brand-name">Grid<span>Guard</span> AI</span>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="gg-sidebar__nav">
+            <div class="gg-nav__section-label">Main</div>
+
+            <a href="../index.html" class="gg-nav-item" id="nav-overview">
+                <svg class="gg-nav-item__icon" viewBox="0 0 20 20" fill="currentColor"><path d="M3 4a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm9 0a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1V4zM3 13a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1H4a1 1 0 01-1-1v-3zm9 0a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-3z"/></svg>
+                Overview
+            </a>
+            <a href="live-monitoring.html" class="gg-nav-item" id="nav-monitoring">
+                <svg class="gg-nav-item__icon" viewBox="0 0 20 20" fill="currentColor"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zm6-4a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zm6-3a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg>
+                Live Monitoring
+            </a>
+            <a href="devices.html" class="gg-nav-item" id="nav-devices">
+                <svg class="gg-nav-item__icon" viewBox="0 0 20 20" fill="currentColor"><path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H5a1 1 0 01-1-1V7zm2 2v6h8V9H6z"/></svg>
+                Devices
+            </a>
+            <a href="anomalies.html" class="gg-nav-item" id="nav-anomalies">
+                <svg class="gg-nav-item__icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 10-2 0 1 1 0 002 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+                Anomalies
+            </a>
+
+            <div class="gg-nav__section-label">Security</div>
+
+            <a href="intrusion-logs.html" class="gg-nav-item" id="nav-intrusion">
+                <svg class="gg-nav-item__icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 1.944A11.954 11.954 0 012.166 5C2.057 5.649 2 6.319 2 7c0 5.225 3.34 9.67 8 11.317C14.66 16.67 18 12.225 18 7c0-.682-.057-1.35-.166-2A11.954 11.954 0 0110 1.944z" clip-rule="evenodd"/></svg>
+                Intrusion Logs
+            </a>
+            <a href="analytics.html" class="gg-nav-item gg-nav-item--active" id="nav-analytics">
+                <svg class="gg-nav-item__icon" viewBox="0 0 20 20" fill="currentColor"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"/><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"/></svg>
+                Analytics
+            </a>
+
+            <div class="gg-nav__section-label">System</div>
+
+            <a href="settings.html" class="gg-nav-item" id="nav-settings">
+                <svg class="gg-nav-item__icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/></svg>
+                Settings
+            </a>
+        </nav>
+
+        <!-- Sidebar footer -->
+        <div class="gg-sidebar__footer" id="sidebar-user">
+            <button type="button" class="gg-device-item gg-p-0" style="background:none;border:none;cursor:pointer;width:100%;text-align:left;padding:0;">
+                <div class="gg-device-item__icon" style="background: var(--accent-teal-muted); color: var(--accent-teal);">
+                    <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
+                </div>
+                <div class="gg-device-item__info">
+                    <div class="gg-device-item__name">Admin</div>
+                    <div class="gg-device-item__meta">admin@gridguard.ai</div>
+                </div>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Mobile sidebar overlay -->
+    <div class="gg-sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- ================================================================
+         MAIN CONTENT
+         ================================================================ -->
+    <div class="gg-dashboard__main">
+
+        <!-- ============================================================
+             TOP HEADER BAR
+             ============================================================ -->
+        <header class="gg-header" id="header">
+            <div class="gg-flex gg-items-center gg-gap-4">
+                <button class="gg-btn--icon gg-hidden" id="sidebar-toggle" aria-label="Toggle navigation" style="display:none;">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/></svg>
+                </button>
+                <h1 class="gg-header__title" id="header-title">Analytics</h1>
+                <div class="gg-header__live" id="system-status">
+                    <span class="gg-status-dot gg-status-dot--ok gg-status-dot--pulse"></span>
+                    System Operational
+                </div>
+            </div>
+
+            <div class="gg-header__actions">
+                <span class="text-mono text-secondary" id="header-datetime" style="font-size: var(--text-sm);"></span>
+                <button class="gg-btn--icon gg-tooltip" data-tooltip="Notifications" id="btn-notifications" aria-label="Notifications">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zm0 16a3 3 0 01-3-3h6a3 3 0 01-3 3z"/></svg>
+                </button>
+                <button class="gg-btn--icon gg-tooltip" data-tooltip="Profile" id="btn-profile" aria-label="Profile">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- ============================================================
+             PAGE CONTENT
+             ============================================================ -->
+        <main class="gg-dashboard__content" id="main-content">
+
+            <!-- ========================================================
+                 SECTION: ANALYTICS KPI STRIP
+                 ======================================================== -->
+            <section id="section-analytics-kpi" aria-label="Analytics summary">
+                <div class="gg-grid gg-grid--cols-4">
+
+                    <div class="gg-metric-card gg-metric-card--cyan gg-animate-fade-in-up gg-delay-1" id="kpi-total-energy">
+                        <div class="gg-metric-card__label">
+                            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" style="color:var(--accent-cyan)"><path d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"/></svg>
+                            Energy Today
+                        </div>
+                        <div>
+                            <span class="gg-metric-card__value">116.3</span>
+                            <span class="gg-metric-card__unit">MWh</span>
+                        </div>
+                        <div class="gg-metric-card__trend gg-metric-card__trend--up">+5.1% vs yesterday</div>
+                    </div>
+
+                    <div class="gg-metric-card gg-metric-card--teal gg-animate-fade-in-up gg-delay-2" id="kpi-peak-demand">
+                        <div class="gg-metric-card__label">
+                            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" style="color:var(--accent-teal)"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zm6-4a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zm6-3a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg>
+                            Peak Demand
+                        </div>
+                        <div>
+                            <span class="gg-metric-card__value">5.4</span>
+                            <span class="gg-metric-card__unit">MW</span>
+                        </div>
+                        <div class="gg-metric-card__trend gg-metric-card__trend--flat">Peak at 13:40</div>
+                    </div>
+
+                    <div class="gg-metric-card gg-metric-card--ok gg-animate-fade-in-up gg-delay-3" id="kpi-avg-consumption">
+                        <div class="gg-metric-card__label">
+                            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" style="color:var(--status-ok)"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zm6-4a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zm6-3a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg>
+                            Avg Consumption
+                        </div>
+                        <div>
+                            <span class="gg-metric-card__value">4,690</span>
+                            <span class="gg-metric-card__unit">kW</span>
+                        </div>
+                        <div class="gg-metric-card__trend gg-metric-card__trend--up">+2.8% this week</div>
+                    </div>
+
+                    <div class="gg-metric-card gg-metric-card--ok gg-animate-fade-in-up gg-delay-4" id="kpi-renewable-share">
+                        <div class="gg-metric-card__label">
+                            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" style="color:var(--status-ok)"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L9 9.414V13a1 1 0 102 0V9.414l.293.293a1 1 0 001.414-1.414l-2-2z" clip-rule="evenodd"/></svg>
+                            Renewable Share
+                        </div>
+                        <div>
+                            <span class="gg-metric-card__value">34.7</span>
+                            <span class="gg-metric-card__unit">%</span>
+                        </div>
+                        <div class="gg-status-bar">
+                            <div class="gg-status-bar__fill gg-status-bar__fill--ok" style="width: 34.7%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========================================================
+                 SECTION: ANALYTICS CHARTS
+                 ======================================================== -->
+            <section id="section-analytics-charts" aria-label="Analytics charts" class="gg-mt-8">
+                <div class="gg-section-divider">
+                    <span class="gg-section-divider__label">Energy &amp; Anomaly Analytics</span>
+                    <div class="gg-section-divider__line"></div>
+                </div>
+
+                <div class="gg-grid gg-grid--cols-2">
+
+                    <!-- Sector power consumption (bar) -->
+                    <div class="gg-chart-wrapper gg-animate-fade-in-up gg-delay-1" id="chart-sector-power-wrapper">
+                        <div class="gg-chart-wrapper__header">
+                            <span class="gg-chart-wrapper__title">Power Consumption by Sector</span>
+                            <span class="gg-badge gg-badge--info">Today</span>
+                        </div>
+                        <div class="gg-chart-wrapper__canvas" style="height: 260px;">
+                            <canvas id="chart-sector-power"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Anomaly type distribution (doughnut) -->
+                    <div class="gg-chart-wrapper gg-animate-fade-in-up gg-delay-2" id="chart-anomaly-types-wrapper">
+                        <div class="gg-chart-wrapper__header">
+                            <span class="gg-chart-wrapper__title">Anomaly Distribution (30d)</span>
+                            <span class="gg-badge gg-badge--warning">93 Events</span>
+                        </div>
+                        <div class="gg-chart-wrapper__canvas" style="height: 260px;">
+                            <canvas id="chart-anomaly-types"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========================================================
+                 SECTION: MONTHLY STATISTICS TABLE
+                 ======================================================== -->
+            <section id="section-monthly-stats" aria-label="Monthly statistics" class="gg-mt-8">
+                <div class="gg-card gg-animate-fade-in-up gg-delay-1" id="monthly-stats-panel">
+                    <div class="gg-card__header">
+                        <span class="gg-card__title">Monthly Energy Statistics</span>
+                        <button class="gg-btn gg-btn--sm gg-btn--secondary" id="btn-export-report">Export Report</button>
+                    </div>
+
+                    <div class="gg-table-wrapper">
+                        <table class="gg-table" id="monthly-stats-table">
+                            <thead>
+                                <tr>
+                                    <th>Month</th>
+                                    <th>Consumption (MWh)</th>
+                                    <th>Generation (MWh)</th>
+                                    <th>Peak Demand (MW)</th>
+                                    <th>Anomalies</th>
+                                    <th>Uptime</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="font-semibold">Aug 2026</td>
+                                    <td class="text-mono">3,412</td>
+                                    <td class="text-mono">3,688</td>
+                                    <td class="text-mono">5.4</td>
+                                    <td class="text-mono">93</td>
+                                    <td><span class="gg-badge gg-badge--ok">99.2%</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-semibold">Jul 2026</td>
+                                    <td class="text-mono">3,587</td>
+                                    <td class="text-mono">3,741</td>
+                                    <td class="text-mono">5.7</td>
+                                    <td class="text-mono">118</td>
+                                    <td><span class="gg-badge gg-badge--ok">98.8%</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-semibold">Jun 2026</td>
+                                    <td class="text-mono">3,295</td>
+                                    <td class="text-mono">3,540</td>
+                                    <td class="text-mono">5.2</td>
+                                    <td class="text-mono">87</td>
+                                    <td><span class="gg-badge gg-badge--ok">99.4%</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-semibold">May 2026</td>
+                                    <td class="text-mono">3,108</td>
+                                    <td class="text-mono">3,459</td>
+                                    <td class="text-mono">4.9</td>
+                                    <td class="text-mono">74</td>
+                                    <td><span class="gg-badge gg-badge--ok">99.6%</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="font-semibold">Apr 2026</td>
+                                    <td class="text-mono">2,984</td>
+                                    <td class="text-mono">3,302</td>
+                                    <td class="text-mono">4.7</td>
+                                    <td class="text-mono">81</td>
+                                    <td><span class="gg-badge gg-badge--ok">99.1%</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="gg-card__footer">
+                        Data aggregated from all 248 registered devices
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+</div>
+
+<!-- ====================================================================
+     SCRIPTS
+     ==================================================================== -->
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+
+<!-- GridGuard AI — Modular JS (load order matters) -->
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/auth.js"></script>
+<script src="../assets/js/simulation.js"></script>
+<script src="../assets/js/charts.js"></script>
+<script src="../assets/js/dashboard.js"></script>
+
+</body>
+</html>

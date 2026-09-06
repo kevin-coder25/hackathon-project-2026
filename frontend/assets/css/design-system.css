@@ -1,0 +1,446 @@
+/* ========================================================================
+   GRIDGUARD AI — Design System
+   ========================================================================
+   The foundational visual language for the GridGuard AI platform.
+   All CSS custom properties (variables) are defined here and consumed
+   by components.css, layout.css, animations.css and responsive.css.
+   ======================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   1. COLOR PALETTE
+   -------------------------------------------------------------------------- */
+
+:root {
+
+    /* ---- Background Layers ---- */
+    /* Layered from deepest (body) to most elevated (modals/popovers)       */
+    --bg-base:              #060a13;   /* Body / page background             */
+    --bg-surface:           #0c1222;   /* Primary surface (sidebar, panels)  */
+    --bg-surface-raised:    #111a30;   /* Raised surface (cards, widgets)    */
+    --bg-surface-overlay:   #162038;   /* Overlay surface (modals, dropdowns)*/
+    --bg-surface-hover:     #1a2540;   /* Hover state for interactive rows   */
+
+    /* ---- Primary Accent — Electric Cyan ---- */
+    --accent-cyan:          #00d4ff;
+    --accent-cyan-dim:      #00a8cc;
+    --accent-cyan-bright:   #33e0ff;
+    --accent-cyan-glow:     rgba(0, 212, 255, 0.30);
+    --accent-cyan-muted:    rgba(0, 212, 255, 0.08);
+    --accent-cyan-border:   rgba(0, 212, 255, 0.25);
+
+    /* ---- Secondary Accent — Teal ---- */
+    --accent-teal:          #0d9488;
+    --accent-teal-dim:      #0f766e;
+    --accent-teal-bright:   #14b8a6;
+    --accent-teal-glow:     rgba(13, 148, 136, 0.25);
+    --accent-teal-muted:    rgba(13, 148, 136, 0.08);
+
+    /* ---- Status Colors ---- */
+    /* Green  — Normal / Secure / Operational                                */
+    --status-ok:            #10b981;
+    --status-ok-dim:        #059669;
+    --status-ok-bg:         rgba(16, 185, 129, 0.10);
+    --status-ok-border:     rgba(16, 185, 129, 0.30);
+    --status-ok-glow:       rgba(16, 185, 129, 0.25);
+
+    /* Amber  — Warning / Attention Needed                                   */
+    --status-warning:       #f59e0b;
+    --status-warning-dim:   #d97706;
+    --status-warning-bg:    rgba(245, 158, 11, 0.10);
+    --status-warning-border:rgba(245, 158, 11, 0.30);
+    --status-warning-glow:  rgba(245, 158, 11, 0.25);
+
+    /* Red    — Critical / Security Threat                                   */
+    --status-critical:      #ef4444;
+    --status-critical-dim:  #dc2626;
+    --status-critical-bg:   rgba(239, 68, 68, 0.10);
+    --status-critical-border:rgba(239, 68, 68, 0.30);
+    --status-critical-glow: rgba(239, 68, 68, 0.25);
+
+    /* ---- Neutral / Offline ---- */
+    --status-neutral:       #64748b;
+    --status-neutral-bg:    rgba(100, 116, 139, 0.10);
+
+    /* ---- Text ---- */
+    --text-primary:         #e2e8f0;   /* Main body text                     */
+    --text-secondary:       #94a3b8;   /* Supporting / secondary text        */
+    --text-tertiary:        #64748b;   /* Muted labels, placeholders         */
+    --text-heading:         #f1f5f9;   /* Headings                            */
+    --text-accent:          #00d4ff;   /* Accent-colored text                 */
+    --text-inverse:         #060a13;   /* Text on bright backgrounds          */
+
+    /* ---- Borders ---- */
+    --border-subtle:        rgba(255, 255, 255, 0.05);
+    --border-default:       rgba(255, 255, 255, 0.08);
+    --border-medium:        rgba(255, 255, 255, 0.12);
+    --border-strong:        rgba(255, 255, 255, 0.18);
+    --border-accent:        rgba(0, 212, 255, 0.25);
+    --border-focus:         rgba(0, 212, 255, 0.50);
+
+    /* ---- Chart Palette ---- */
+    /* Distinct, accessible colors for data visualization                    */
+    --chart-1:              #00d4ff;   /* Cyan                               */
+    --chart-2:              #14b8a6;   /* Teal                               */
+    --chart-3:              #8b5cf6;   /* Violet                             */
+    --chart-4:              #f59e0b;   /* Amber                              */
+    --chart-5:              #ef4444;   /* Red                                */
+    --chart-6:              #10b981;   /* Green                              */
+    --chart-7:              #6366f1;   /* Indigo                             */
+    --chart-8:              #ec4899;   /* Pink                               */
+    --chart-grid:           rgba(255, 255, 255, 0.06);
+    --chart-tick:           #64748b;
+}
+
+
+/* --------------------------------------------------------------------------
+   2. TYPOGRAPHY
+   -------------------------------------------------------------------------- */
+
+:root {
+    /* ---- Font Families ---- */
+    --font-sans:   'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --font-mono:   'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+
+    /* ---- Font Sizes (modular scale, ~1.25 ratio) ---- */
+    --text-xs:      0.75rem;     /* 12px — captions, tiny labels            */
+    --text-sm:      0.8125rem;   /* 13px — small labels, timestamps         */
+    --text-base:    0.875rem;    /* 14px — default body text                 */
+    --text-md:      1rem;        /* 16px — slightly emphasized body          */
+    --text-lg:      1.125rem;    /* 18px — small headings                    */
+    --text-xl:      1.25rem;     /* 20px — section headings                  */
+    --text-2xl:     1.5rem;      /* 24px — page section titles               */
+    --text-3xl:     1.875rem;    /* 30px — page headings                     */
+    --text-4xl:     2.25rem;     /* 36px — hero / dashboard title            */
+
+    /* ---- Metric Display (large numbers on cards) ---- */
+    --metric-xl:    2.5rem;      /* 40px — hero metric                       */
+    --metric-lg:    2rem;        /* 32px — primary card metric              */
+    --metric-md:    1.5rem;      /* 24px — secondary card metric            */
+
+    /* ---- Font Weights ---- */
+    --font-regular:     400;
+    --font-medium:      500;
+    --font-semibold:    600;
+    --font-bold:        700;
+
+    /* ---- Line Heights ---- */
+    --leading-tight:    1.25;
+    --leading-normal:   1.5;
+    --leading-relaxed:  1.625;
+
+    /* ---- Letter Spacing ---- */
+    --tracking-tight:   -0.01em;
+    --tracking-normal:   0;
+    --tracking-wide:     0.025em;
+    --tracking-wider:    0.05em;
+    --tracking-label:    0.08em;   /* Uppercase labels                      */
+}
+
+
+/* --------------------------------------------------------------------------
+   3. SPACING SCALE
+   --------------------------------------------------------------------------
+   Consistent spacing based on a 4px base unit.
+   Use these for margin, padding and gap values.
+   -------------------------------------------------------------------------- */
+
+:root {
+    --space-0:    0;
+    --space-1:    0.25rem;    /*  4px */
+    --space-2:    0.5rem;     /*  8px */
+    --space-3:    0.75rem;    /* 12px */
+    --space-4:    1rem;       /* 16px */
+    --space-5:    1.25rem;    /* 20px */
+    --space-6:    1.5rem;     /* 24px */
+    --space-8:    2rem;       /* 32px */
+    --space-10:   2.5rem;     /* 40px */
+    --space-12:   3rem;       /* 48px */
+    --space-16:   4rem;       /* 64px */
+    --space-20:   5rem;       /* 80px */
+
+    /* Semantic spacing tokens */
+    --gap-inline:   var(--space-2);   /* Inline element gaps                */
+    --gap-group:    var(--space-4);   /* Grouping gap within a card         */
+    --gap-card:     var(--space-6);   /* Gap between cards in a grid        */
+    --gap-section:  var(--space-8);   /* Gap between page sections          */
+    --gap-page:     var(--space-10);  /* Page-level vertical rhythm         */
+}
+
+
+/* --------------------------------------------------------------------------
+   4. BORDER RADIUS
+   -------------------------------------------------------------------------- */
+
+:root {
+    --radius-sm:    4px;     /* Small controls (tags, badges)               */
+    --radius-md:    6px;     /* Inputs, small buttons                        */
+    --radius-lg:    8px;     /* Cards, panels                                */
+    --radius-xl:    12px;    /* Large cards, modals                          */
+    --radius-2xl:   16px;    /* Hero sections                                */
+    --radius-full:  9999px;  /* Pills, circular badges                       */
+}
+
+
+/* --------------------------------------------------------------------------
+   5. SHADOWS & GLOWS
+   -------------------------------------------------------------------------- */
+
+:root {
+    /* ---- Elevation Shadows ---- */
+    --shadow-sm:    0 1px 2px rgba(0, 0, 0, 0.30);
+    --shadow-md:    0 4px 12px rgba(0, 0, 0, 0.35);
+    --shadow-lg:    0 8px 24px rgba(0, 0, 0, 0.40);
+    --shadow-xl:    0 16px 48px rgba(0, 0, 0, 0.45);
+
+    /* ---- Accent Glows ---- */
+    --glow-cyan:        0 0 12px rgba(0, 212, 255, 0.20), 0 0 24px rgba(0, 212, 255, 0.10);
+    --glow-cyan-strong: 0 0 16px rgba(0, 212, 255, 0.35), 0 0 40px rgba(0, 212, 255, 0.15);
+    --glow-teal:        0 0 12px rgba(13, 148, 136, 0.20), 0 0 24px rgba(13, 148, 136, 0.10);
+
+    /* ---- Status Glows ---- */
+    --glow-ok:          0 0 10px rgba(16, 185, 129, 0.25);
+    --glow-warning:     0 0 10px rgba(245, 158, 11, 0.25);
+    --glow-critical:    0 0 10px rgba(239, 68, 68, 0.25);
+
+    /* ---- Card Default ---- */
+    --card-shadow:      0 2px 8px rgba(0, 0, 0, 0.30);
+    --card-shadow-hover:0 4px 16px rgba(0, 0, 0, 0.40), 0 0 12px rgba(0, 212, 255, 0.08);
+}
+
+
+/* --------------------------------------------------------------------------
+   6. TRANSITIONS
+   -------------------------------------------------------------------------- */
+
+:root {
+    --transition-fast:    150ms ease;
+    --transition-base:    200ms ease;
+    --transition-slow:    300ms ease;
+    --transition-spring:  300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+
+/* --------------------------------------------------------------------------
+   7. Z-INDEX SCALE
+   -------------------------------------------------------------------------- */
+
+:root {
+    --z-base:       1;
+    --z-dropdown:   100;
+    --z-sticky:     200;
+    --z-sidebar:    300;
+    --z-overlay:    400;
+    --z-modal:      500;
+    --z-toast:      600;
+    --z-tooltip:    700;
+}
+
+
+/* --------------------------------------------------------------------------
+   8. LAYOUT TOKENS
+   -------------------------------------------------------------------------- */
+
+:root {
+    --sidebar-width:        260px;
+    --sidebar-collapsed:    72px;
+    --header-height:        60px;
+    --content-max-width:    1440px;
+    --content-padding:      var(--space-6);
+}
+
+
+/* --------------------------------------------------------------------------
+   9. GLOBAL RESET & BASE STYLES
+   -------------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    font-weight: var(--font-regular);
+    line-height: var(--leading-normal);
+    color: var(--text-primary);
+    background-color: var(--bg-base);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ---- Subtle grid pattern overlay on the body ---- */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Ensure all content sits above the grid pattern */
+body > * {
+    position: relative;
+    z-index: 1;
+}
+
+a {
+    color: var(--accent-cyan);
+    text-decoration: none;
+    transition: color var(--transition-base);
+}
+
+a:hover {
+    color: var(--accent-cyan-bright);
+}
+
+img, svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* ---- Scrollbar Styling ---- */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.20);
+}
+
+
+/* --------------------------------------------------------------------------
+   10. TYPOGRAPHY BASE STYLES
+   -------------------------------------------------------------------------- */
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-heading);
+    font-weight: var(--font-semibold);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+}
+
+h1 { font-size: var(--text-4xl); }
+h2 { font-size: var(--text-3xl); }
+h3 { font-size: var(--text-2xl); }
+h4 { font-size: var(--text-xl);   }
+h5 { font-size: var(--text-lg);   }
+h6 { font-size: var(--text-md);   }
+
+p {
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+}
+
+/* Uppercase label style — used for card headers, section labels, KPIs */
+.label-uppercase {
+    font-size: var(--text-xs);
+    font-weight: var(--font-semibold);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+}
+
+/* Mono text — used for metric values, code, data readouts */
+.text-mono {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    letter-spacing: var(--tracking-normal);
+}
+
+/* Metric display values */
+.metric-value {
+    font-family: var(--font-mono);
+    font-weight: var(--font-bold);
+    color: var(--text-heading);
+    line-height: 1;
+}
+
+.metric-value--xl { font-size: var(--metric-xl); }
+.metric-value--lg { font-size: var(--metric-lg); }
+.metric-value--md { font-size: var(--metric-md); }
+
+/* Metric unit (e.g. "kW", "°C", "V") */
+.metric-unit {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    color: var(--text-tertiary);
+    margin-left: var(--space-1);
+}
+
+
+/* --------------------------------------------------------------------------
+   11. UTILITY CLASSES
+   -------------------------------------------------------------------------- */
+
+/* ---- Text Colors ---- */
+.text-primary     { color: var(--text-primary);   }
+.text-secondary   { color: var(--text-secondary); }
+.text-tertiary    { color: var(--text-tertiary);  }
+.text-accent      { color: var(--text-accent);    }
+.text-ok          { color: var(--status-ok);       }
+.text-warning     { color: var(--status-warning);  }
+.text-critical    { color: var(--status-critical); }
+
+/* ---- Backgrounds ---- */
+.bg-base          { background-color: var(--bg-base);           }
+.bg-surface       { background-color: var(--bg-surface);        }
+.bg-surface-raised{ background-color: var(--bg-surface-raised); }
+
+/* ---- Text Alignment ---- */
+.text-left        { text-align: left;   }
+.text-center      { text-align: center; }
+.text-right       { text-align: right;  }
+
+/* ---- Font Weight Helpers ---- */
+.font-regular     { font-weight: var(--font-regular);  }
+.font-medium      { font-weight: var(--font-medium);   }
+.font-semibold    { font-weight: var(--font-semibold); }
+.font-bold        { font-weight: var(--font-bold);     }
+
+/* ---- Truncation ---- */
+.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* ---- Screen-reader only ---- */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}

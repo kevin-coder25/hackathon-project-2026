@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GridGuard AI — Settings</title>
+
+    <!-- Google Fonts: Inter + JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- GridGuard AI Design System (single entry point) -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+
+<!-- ====================================================================
+     DASHBOARD ROOT
+     ==================================================================== -->
+<div class="gg-dashboard" id="dashboard">
+
+    <!-- ================================================================
+         SIDEBAR NAVIGATION
+         ================================================================ -->
+    <aside class="gg-sidebar" id="sidebar" role="navigation" aria-label="Main navigation">
+
+        <!-- Brand -->
+        <div class="gg-sidebar__brand">
+            <svg class="gg-sidebar__brand-logo" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="2" y="2" width="28" height="28" rx="6" stroke="#00d4ff" stroke-width="2"/>
+                <path d="M16 6 L16 26 M6 16 L26 16 M9 9 L23 23 M23 9 L9 23" stroke="#00d4ff" stroke-width="1.2" opacity="0.35"/>
+                <circle cx="16" cy="16" r="4" fill="#00d4ff" opacity="0.85"/>
+                <circle cx="16" cy="6"  r="2" fill="#00d4ff"/>
+                <circle cx="16" cy="26" r="2" fill="#00d4ff"/>
+                <circle cx="6"  cy="16" r="2" fill="#00d4ff"/>
+                <circle cx="26" cy="16" r="2" fill="#00d4ff"/>
+            </svg>
+            <span class="gg-sidebar__brand-name">Grid<span>Guard</span> AI</span>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="gg-sidebar__nav">
+            <div class="gg-nav__section-label">Main</div>
+
+            <a href="../index.html" class="gg-nav-item" id="nav-overview">
+                <svg class="gg-nav-item__icon" viewBox="0 0 20 20" fill="currentColor"><path d="M3 4a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm9 0a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1V4zM3 13a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1H4a1 1 0 01-1-1v-3zm9 0a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-3z"/></svg>
+                Overview
+            </a>
+            <a href="live-monitoring.html" class="gg-nav-item" id="nav-monitoring">
+                <svg class="gg-nav-item__icon" viewBox="0 0 20 20" fill="currentColor"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zm6-4a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zm6-3a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/></svg>
+                Live Monitoring
+            </a>
+            <a href="devices.html" class="gg-nav-item" id="nav-devices">
+                <svg class="gg-nav-item__icon" viewBox="0 0 20 20" fill="currentColor"><path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 011 1v10a1 1 0 01-1 1H5a1 1 0 01-1-1V7zm2 2v6h8V9H6z"/></svg>
+                Devices
+            </a>
+            <a href="anomalies.html" class="gg-nav-item" id="nav-anomalies">
+                <svg class="gg-nav-item__icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 10-2 0 1 1 0 002 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>
+                Anomalies
+            </a>
+
+            <div class="gg-nav__section-label">Security</div>
+
+            <a href="intrusion-logs.html" class="gg-nav-item" id="nav-intrusion">
+                <svg class="gg-nav-item__icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 1.944A11.954 11.954 0 012.166 5C2.057 5.649 2 6.319 2 7c0 5.225 3.34 9.67 8 11.317C14.66 16.67 18 12.225 18 7c0-.682-.057-1.35-.166-2A11.954 11.954 0 0110 1.944z" clip-rule="evenodd"/></svg>
+                Intrusion Logs
+            </a>
+            <a href="analytics.html" class="gg-nav-item" id="nav-analytics">
+                <svg class="gg-nav-item__icon" viewBox="0 0 20 20" fill="currentColor"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"/><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"/></svg>
+                Analytics
+            </a>
+
+            <div class="gg-nav__section-label">System</div>
+
+            <a href="settings.html" class="gg-nav-item gg-nav-item--active" id="nav-settings">
+                <svg class="gg-nav-item__icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"/></svg>
+                Settings
+            </a>
+        </nav>
+
+        <!-- Sidebar footer -->
+        <div class="gg-sidebar__footer" id="sidebar-user">
+            <button type="button" class="gg-device-item gg-p-0" style="background:none;border:none;cursor:pointer;width:100%;text-align:left;padding:0;">
+                <div class="gg-device-item__icon" style="background: var(--accent-teal-muted); color: var(--accent-teal);">
+                    <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
+                </div>
+                <div class="gg-device-item__info">
+                    <div class="gg-device-item__name">Admin</div>
+                    <div class="gg-device-item__meta">admin@gridguard.ai</div>
+                </div>
+            </button>
+        </div>
+    </aside>
+
+    <!-- Mobile sidebar overlay -->
+    <div class="gg-sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- ================================================================
+         MAIN CONTENT
+         ================================================================ -->
+    <div class="gg-dashboard__main">
+
+        <!-- ============================================================
+             TOP HEADER BAR
+             ============================================================ -->
+        <header class="gg-header" id="header">
+            <div class="gg-flex gg-items-center gg-gap-4">
+                <button class="gg-btn--icon gg-hidden" id="sidebar-toggle" aria-label="Toggle navigation" style="display:none;">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/></svg>
+                </button>
+                <h1 class="gg-header__title" id="header-title">Settings</h1>
+                <div class="gg-header__live" id="system-status">
+                    <span class="gg-status-dot gg-status-dot--ok gg-status-dot--pulse"></span>
+                    System Operational
+                </div>
+            </div>
+
+            <div class="gg-header__actions">
+                <span class="text-mono text-secondary" id="header-datetime" style="font-size: var(--text-sm);"></span>
+                <button class="gg-btn--icon gg-tooltip" data-tooltip="Notifications" id="btn-notifications" aria-label="Notifications">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zm0 16a3 3 0 01-3-3h6a3 3 0 01-3 3z"/></svg>
+                </button>
+                <button class="gg-btn--icon gg-tooltip" data-tooltip="Profile" id="btn-profile" aria-label="Profile">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- ============================================================
+             PAGE CONTENT
+             ============================================================ -->
+        <main class="gg-dashboard__content" id="main-content">
+
+            <div class="gg-grid gg-grid--cols-2">
+
+                <!-- ========================================================
+                     GENERAL SETTINGS
+                     ======================================================== -->
+                <div class="gg-card gg-animate-fade-in-up gg-delay-1" id="settings-general">
+                    <div class="gg-card__header">
+                        <span class="gg-card__title">General Settings</span>
+                    </div>
+
+                    <form id="form-general-settings">
+                        <div class="gg-form-group">
+                            <label class="gg-label" for="setting-system-name">System Name</label>
+                            <input type="text" class="gg-input" id="setting-system-name" value="GridGuard AI — Main Control" placeholder="Enter system name">
+                        </div>
+
+                        <div class="gg-form-group">
+                            <label class="gg-label" for="setting-timezone">Timezone</label>
+                            <select class="gg-select" id="setting-timezone">
+                                <option value="utc" selected>UTC (Coordinated Universal Time)</option>
+                                <option value="eet">EET (Eastern European Time)</option>
+                                <option value="cet">CET (Central European Time)</option>
+                                <option value="est">EST (Eastern Standard Time)</option>
+                            </select>
+                        </div>
+
+                        <div class="gg-form-group">
+                            <label class="gg-label" for="setting-units">Measurement Units</label>
+                            <select class="gg-select" id="setting-units">
+                                <option value="metric" selected>Metric (kW, °C, Hz)</option>
+                                <option value="imperial">Imperial (hp, °F)</option>
+                            </select>
+                        </div>
+
+                        <div class="gg-form-group">
+                            <label class="gg-label" for="setting-refresh">Data Refresh Interval</label>
+                            <select class="gg-select" id="setting-refresh">
+                                <option value="1">1 second</option>
+                                <option value="5" selected>5 seconds</option>
+                                <option value="15">15 seconds</option>
+                                <option value="60">1 minute</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- ========================================================
+                     NOTIFICATION PREFERENCES
+                     ======================================================== -->
+                <div class="gg-card gg-animate-fade-in-up gg-delay-2" id="settings-notifications">
+                    <div class="gg-card__header">
+                        <span class="gg-card__title">Notification Preferences</span>
+                    </div>
+
+                    <form id="form-notification-settings">
+                        <label class="gg-checkbox gg-py-3" style="width: 100%;">
+                            <input type="checkbox" checked>
+                            Critical security alerts (email + dashboard)
+                        </label>
+                        <hr class="gg-divider">
+                        <label class="gg-checkbox gg-py-3" style="width: 100%;">
+                            <input type="checkbox" checked>
+                            Grid anomalies detected by AI
+                        </label>
+                        <hr class="gg-divider">
+                        <label class="gg-checkbox gg-py-3" style="width: 100%;">
+                            <input type="checkbox" checked>
+                            Device offline / reconnected events
+                        </label>
+                        <hr class="gg-divider">
+                        <label class="gg-checkbox gg-py-3" style="width: 100%;">
+                            <input type="checkbox">
+                            Weekly analytics summary reports
+                        </label>
+                        <hr class="gg-divider">
+                        <label class="gg-checkbox gg-py-3" style="width: 100%;">
+                            <input type="checkbox">
+                            Maintenance window reminders
+                        </label>
+                    </form>
+                </div>
+
+                <!-- ========================================================
+                     SECURITY SETTINGS
+                     ======================================================== -->
+                <div class="gg-card gg-animate-fade-in-up gg-delay-3" id="settings-security">
+                    <div class="gg-card__header">
+                        <span class="gg-card__title">Security Settings</span>
+                        <span class="gg-badge gg-badge--ok">Policy Active</span>
+                    </div>
+
+                    <form id="form-security-settings">
+                        <div class="gg-form-group">
+                            <label class="gg-label" for="setting-session-timeout">Session Timeout</label>
+                            <select class="gg-select" id="setting-session-timeout">
+                                <option value="15">15 minutes</option>
+                                <option value="30" selected>30 minutes</option>
+                                <option value="60">1 hour</option>
+                            </select>
+                        </div>
+
+                        <div class="gg-form-group">
+                            <label class="gg-label" for="setting-password-expiry">Password Expiry</label>
+                            <select class="gg-select" id="setting-password-expiry">
+                                <option value="30">30 days</option>
+                                <option value="60" selected>60 days</option>
+                                <option value="90">90 days</option>
+                                <option value="never">Never</option>
+                            </select>
+                        </div>
+
+                        <label class="gg-checkbox gg-py-3" style="width: 100%;">
+                            <input type="checkbox" checked>
+                            Require two-factor authentication (2FA)
+                        </label>
+                        <hr class="gg-divider">
+                        <label class="gg-checkbox gg-py-3" style="width: 100%;">
+                            <input type="checkbox" checked>
+                            Auto-block IPs after 5 failed login attempts
+                        </label>
+                        <hr class="gg-divider">
+                        <label class="gg-checkbox gg-py-3" style="width: 100%;">
+                            <input type="checkbox">
+                            Allow remote access from external networks
+                        </label>
+                    </form>
+                </div>
+
+                <!-- ========================================================
+                     AI ENGINE SETTINGS
+                     ======================================================== -->
+                <div class="gg-card gg-animate-fade-in-up gg-delay-4" id="settings-ai">
+                    <div class="gg-card__header">
+                        <span class="gg-card__title">AI Engine Settings</span>
+                        <span class="gg-badge gg-badge--info">v3.2.1</span>
+                    </div>
+
+                    <form id="form-ai-settings">
+                        <div class="gg-form-group">
+                            <label class="gg-label" for="setting-sensitivity">Anomaly Detection Sensitivity</label>
+                            <select class="gg-select" id="setting-sensitivity">
+                                <option value="low">Low — fewer false positives</option>
+                                <option value="medium" selected>Medium — balanced</option>
+                                <option value="high">High — catch everything</option>
+                            </select>
+                        </div>
+
+                        <div class="gg-form-group">
+                            <label class="gg-label" for="setting-confidence">Minimum Alert Confidence</label>
+                            <select class="gg-select" id="setting-confidence">
+                                <option value="80">80%</option>
+                                <option value="90" selected>90%</option>
+                                <option value="95">95%</option>
+                            </select>
+                        </div>
+
+                        <label class="gg-checkbox gg-py-3" style="width: 100%;">
+                            <input type="checkbox" checked>
+                            Continuous model retraining with new telemetry
+                        </label>
+                        <hr class="gg-divider">
+                        <label class="gg-checkbox gg-py-3" style="width: 100%;">
+                            <input type="checkbox">
+                            Send anonymised telemetry for model improvement
+                        </label>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Save / Reset actions -->
+            <div class="gg-flex gg-justify-end gg-gap-3 gg-mt-8" id="settings-actions">
+                <button class="gg-btn gg-btn--md gg-btn--secondary" id="btn-reset-settings" type="button">Reset to Defaults</button>
+                <button class="gg-btn gg-btn--md gg-btn--primary" id="btn-save-settings" type="button">
+                    <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+                    Save Changes
+                </button>
+            </div>
+
+        </main>
+    </div>
+</div>
+
+<!-- ====================================================================
+     SCRIPTS
+     ==================================================================== -->
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- GridGuard AI — Modular JS (load order matters) -->
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/auth.js"></script>
+<script src="../assets/js/simulation.js"></script>
+<script src="../assets/js/charts.js"></script>
+<script src="../assets/js/dashboard.js"></script>
+
+</body>
+</html>

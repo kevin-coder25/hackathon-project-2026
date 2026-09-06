@@ -1,0 +1,22 @@
+/* ========================================================================
+   GRIDGUARD AI — Main Stylesheet
+   ========================================================================
+   Single entry point that imports all design-system layers in order.
+   Include this file in your HTML <link> tags.
+   ======================================================================== */
+
+/* Layer 1 — Design tokens (CSS custom properties) and base styles          */
+@import url('design-system.css');
+
+/* Layer 2 — Reusable UI components                                         */
+@import url('components.css');
+
+/* Layer 3 — Grid system and layout utilities                               */
+@import url('layout.css');
+
+/* Layer 4 — Animations and micro-interactions                              */
+@import url('animations.css');
+
+/* Layer 5 — Responsive breakpoints (always last)                           */
+@import url('responsive.css');
+ 
